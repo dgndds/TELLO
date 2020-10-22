@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <title></title>
+  </head>
+  <body>
+    <div id="app" class="app">
+      <header>
+        <h1 id="logo">TELLO</h1>
+        <div>
+          <button class="ctrl-buttons"  onclick="addNewList()">Add List</button>
+        <button class="ctrl-buttons"  onclick="addNewListItem()">Add List Item</button>
+        </div>
+        
+      </header>
+      <div id="lists" class="lists">
+        <div id="first-list" class="list">
+          <div class="list-title" > Main List </div>
+            <div class="list-item" draggable="true">Deneme text <button class="list-item-delete-button" onclick="removeListItem(this)"></button></div>
+        </div>
+      </div>
+    </div>
+    <script src="click.js"></script>
+  </body>
+</html>
