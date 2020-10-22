@@ -3,7 +3,7 @@ document.addEventListener('click', function(e) {
     var target = e.target || e.srcElement,
         text = target.textContent || target.innerText;
 
-          if(target.className === "list-item" || target.className === "list-title"){
+          if(target.className === "list-item" || target.className === "list-item-text" || target.className === "list-title"){
 			let oldMsg = target.childNodes[0].textContent;
 
 			var newText = window.prompt("Enter your new text: ");	
@@ -42,21 +42,23 @@ for (let i = 0; i < list_items.length; i++) {
 	function addNewList(){
 		let newDiv = document.createElement("div");
 		let newTitleDiv = document.createElement("div");
+		let newTitleText = document.createElement("div");
 		let newListDltBtn = document.createElement("button");
 
 		newListDltBtn.className = "list-delete-button";
 		newListDltBtn.onclick = function(){removeNewList(newListDltBtn)};
-
 		
 
 		var title = window.prompt("Enter your Title: ");	
 
 		if(title !== null && title.length !== 0)
-			newTitleDiv.textContent = title;
+			newTitleText.textContent = title;
 		else
-			newTitleDiv.textContent = "Title";
+			newTitleText.textContent = "Title";
 
+		newTitleText.className = "list-item-text";
 
+		newTitleDiv.appendChild(newTitleText);
 		newTitleDiv.appendChild(newListDltBtn);
 
 		newDiv.appendChild(newTitleDiv);
@@ -71,11 +73,16 @@ for (let i = 0; i < list_items.length; i++) {
 
 	function addNewListItem(){
 		let newLisItem = document.createElement("div");
+		let newListText = document.createElement("div");
 		let newLisItemDltBtn = document.createElement("button");
 
 		newLisItem.className = "list-item";
-		newLisItem.textContent = "Deneme Text";
 		newLisItem.draggable = "true";
+		
+		
+		newLisItem.appendChild(newListText);
+		newListText.className = "list-item-text";
+		newListText.textContent = "Deneme Text";
 
 		newLisItem.appendChild(newLisItemDltBtn);
 
@@ -134,7 +141,7 @@ for (let i = 0; i < list_items.length; i++) {
 	
 		item.addEventListener('dragend', function () {
 			setTimeout(function () {
-				draggedItem.style.display = 'block';
+				draggedItem.style.display = 'flex';
 				draggedItem = null;
 			}, 0);
 		})
