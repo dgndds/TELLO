@@ -1,2 +1,2 @@
 # TELLO
-Time management application. Self-made Trello clone created for educational purposes.
+Time management application. Self-made Trello clone created for educational purposes only.
